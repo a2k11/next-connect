@@ -9,7 +9,9 @@
     "build": "next build",
     "deploy": "now --public",
     "alias": "now alias",
-    "remove:deploy": "now rm next-connect"
+    "remove:deploy": "now rm next-connect",
+    "lint": "eslint \"server/**/*.{js}\" --quiet",
+    "lint:fix": "eslint \"server/**/*.{js}\" --quiet --fix"
   },
   "keywords": [],
   "author": "",
@@ -44,6 +46,10 @@
     "validator": "^10.8.0"
   },
   "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.0",
     "nodemon": "^1.18.4"
   }
 }
