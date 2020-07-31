@@ -15,4 +15,5 @@
 
  - created validations for signup, ability to register users
  - authenticating users with passport library, completed signin action for controller
+ - signout, checkAuth implemented for authController
  - 
