@@ -17,4 +17,5 @@
  - authenticating users with passport library, completed signin action for controller
  - signout, checkAuth implemented for authController
  - defined getUsers in userController for /api/users
+ - used router.param() for grabbing user / deleting user by id
  - 
