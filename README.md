@@ -21,4 +21,8 @@
  - defined getAuthUser for user to access only their own data
  - fn: getUserProfile -> userController, remove error-catch from route since not async await function
  - moved following routes to be recognized, defined following users
- - 
+ - unfollow actions for users
+ - activity user feed
+ - updating users with Put request, added multer middleware for handling 'multipart/formdata',
+   added jimp image processing library ( written in javascript ), created actions for avatar image
+ -
