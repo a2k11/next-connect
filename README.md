@@ -19,4 +19,5 @@
  - defined getUsers in userController for /api/users
  - used router.param() for grabbing user / deleting user by id
  - defined getAuthUser for user to access only their own data
+ - fn: getUserProfile -> userController, remove error-catch from route since not async await function
  - 
