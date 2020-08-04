@@ -25,4 +25,5 @@
  - activity user feed
  - updating users with Put request, added multer middleware for handling 'multipart/formdata',
    added jimp image processing library ( written in javascript ), created actions for avatar image
- -
+ - changed getUser to check for user on request, added upload; resizing images along with new posts
+ -  
