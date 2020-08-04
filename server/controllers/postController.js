@@ -46,10 +46,58 @@ exports.deletePost = () => {};
 
 exports.getPostById = () => {};
 
-exports.getPostsByUser = () => {};
+exports.getPostsByUser = async (req, res) => {
+  const posts = await Post.find({ postedBy: req.profile._id }).sort({
+    createdAt: 'desc',
+  });
+  res.json(posts);
+};
 
-exports.getPostFeed = () => {};
+exports.getPostFeed = async (req, res) => {
+  const { following, _id } = req.profile;
 
-exports.toggleLike = () => {};
+  following.push(_id);
+  const posts = await Post.find({ postedBy: { $in: following } }).sort({
+    createdAt: 'desc',
+  });
+  res.json(posts);
+};
 
-exports.toggleComment = () => {};
+exports.toggleLike = async (req, res) => {
+  const { postId } = req.body;
+  const post = await Post.findOne({ _id: postId });
+  const likeIds = post.likes.map(id => id.toString());
+  const authUserId = req.user._id.toString();
+
+  if (likeIds.includes(authUserId)) {
+    await post.likes.pull(authUserId);
+  } else {
+    await post.likes.push(authUserId);
+  }
+
+  await post.save();
+  res.json(post);
+};
+
+exports.toggleComment = async (req, res) => {
+  const { comment, postId } = req.body;
+  let operator;
+  let data;
+
+  if (req.url.includes('uncomment')) {
+    operator = '$pull';
+    data = { _id: comment._id };
+  } else {
+    operator = '$push';
+    data = { text: comment.text, postedBy: req.user._id };
+  }
+
+  const updatedPost = await Post.findOneAndUpdate(
+    { _id: postId },
+    { [operator]: { comments: data } },
+    { new: true },
+  ).populate('postedBy', '_id name avatar')
+    .populate('comments.postedBy', '_id name avatar');
+
+  res.json(updatedPost);
+};
