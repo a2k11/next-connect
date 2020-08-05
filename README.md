@@ -29,4 +29,5 @@
  - retrieving posts by user_id & their followers, fn: getPostFeed(), getPostsByUser()
  - control like and unlike in postController by pull / push likes array fn: toggleLike()
  - posts now have comments which are created with new id, text, & userId
+ - authorized user can delete their posts, router param postId, post Controller finished
  - 
