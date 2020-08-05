@@ -12,7 +12,7 @@
 8. Server should be listening on localhost:3000
 
 ### Continuing the application
-
+#### Backend: ExpressJs
  - created validations for signup, ability to register users
  - authenticating users with passport library, completed signin action for controller
  - signout, checkAuth implemented for authController
@@ -30,4 +30,7 @@
  - control like and unlike in postController by pull / push likes array fn: toggleLike()
  - posts now have comments which are created with new id, text, & userId
  - authorized user can delete their posts, router param postId, post Controller finished
- - 
+
+#### Frontend: NextJs
+  - fixed error handling by adding next param, created a color palette
+  - 
