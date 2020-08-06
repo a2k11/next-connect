@@ -33,4 +33,6 @@
 
 #### Frontend: NextJs
   - fixed error handling by adding next param, created a color palette
+  - created navbar from material ui components, added buttons for auth & unauth users
+  - added ActiveLink components to navbar, used nextjs withRouter to add router object to component
   - 
