@@ -37,5 +37,6 @@
   - added ActiveLink components to navbar, used nextjs withRouter to add router object to component
   - added form to signup page, built with components handling event state changes,
     created call to backend to sign up users
+  - created error component with setting error to state, created success modal for signup
   -  
     
