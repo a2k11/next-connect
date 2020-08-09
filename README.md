@@ -38,5 +38,9 @@
   - added form to signup page, built with components handling event state changes,
     created call to backend to sign up users
   - created error component with setting error to state, created success modal for signup
-  -  
+  -  tried to figure out unhandled rejections error which keeps happening, link is here at:
+     https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode , added new flag to 
+     dev script in package.json for unhandled rejections, created the signin page with 
+     same template as signup page, added axios call to backend for sign in
+  - 
     

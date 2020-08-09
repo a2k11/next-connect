@@ -1,6 +1,7 @@
 const multer = require('multer');
 const jimp = require('jimp');
 const mongoose = require('mongoose');
+
 const Post = mongoose.model('Post');
 
 const imageUploadOptions = {

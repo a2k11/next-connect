@@ -10,10 +10,10 @@ exports.getUsers = async (req, res) => {
 
 exports.getAuthUser = (req, res) => {
   if (!req.isAuthUser) {
-    // res.status(403).json({
-    //   message: 'you are unauthenticated. Please sign in or sign up',
-    // });
-    return res.redirect(403, '/signin');
+    res.status(403).json({
+      message: 'you are unauthenticated. Please sign in or sign up',
+    });
+    return res.redirect('/signin');
   }
   res.json(req.user);
 };

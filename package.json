@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon server/app.js --watch server",
+    "dev": "nodemon server/app.js --unhandled-rejections=throw --watch server",
     "start": "node server/app.js",
     "build": "next build",
     "deploy": "now --public",
