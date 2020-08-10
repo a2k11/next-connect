@@ -42,5 +42,7 @@
      https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode , added new flag to 
      dev script in package.json for unhandled rejections, created the signin page with 
      same template as signup page, added axios call to backend for sign in
+  - defined signout with auth function call, importing auth initial props into each page for
+    navbar to be in correct state
   - 
     
