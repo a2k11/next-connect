@@ -48,5 +48,7 @@
   - passed userId & auth props into profile component to display user data, added material_ui
     components to profile, set loading spinner & auth check for profile view, added api library &
     getUser fn
+  - created unfollow / follow in api library, created FollowUser button & connected requests
+    in profile page
   - 
     
