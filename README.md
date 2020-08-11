@@ -44,5 +44,9 @@
      same template as signup page, added axios call to backend for sign in
   - defined signout with auth function call, importing auth initial props into each page for
     navbar to be in correct state
+  - implemented custom profile route passing user_id to server
+  - passed userId & auth props into profile component to display user data, added material_ui
+    components to profile, set loading spinner & auth check for profile view, added api library &
+    getUser fn
   - 
     
