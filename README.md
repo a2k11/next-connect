@@ -51,5 +51,6 @@
   - created unfollow / follow in api library, created FollowUser button & connected requests
     in profile page
   - added deleteUser to api, added DeleteUser component to profile page, defined DeleteUser component
+  - added getAuthUser to api, added EditProfile component in pages
   - 
     
