@@ -52,5 +52,6 @@
     in profile page
   - added deleteUser to api, added DeleteUser component to profile page, defined DeleteUser component
   - added getAuthUser to api, added EditProfile component in pages
+  - added updateUser to api, created handleChange & handleSubmit within edit-profile to process user events
   - 
     
