@@ -55,5 +55,6 @@
   - added updateUser to api, created handleChange & handleSubmit within edit-profile to process user events
   - imported error & snackbar features from signup page, implemented handleSubmit & handleClose, updated User 
     gets pushed to profile page at finish
+  - created a splash page for unauthenticated users
   - 
     
