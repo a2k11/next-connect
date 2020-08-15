@@ -29,7 +29,7 @@ class Signin extends React.Component {
 
   handleSubmit = event => {
     const { email, password } = this.state;
-    
+
     event.preventDefault();
     const user = { email, password };
     this.setState({ isLoading: true, error: '' })
@@ -73,16 +73,18 @@ class Signin extends React.Component {
         </form>
 
         {/* Error Snackbar */}
-        {error && <Snackbar 
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          open={openError}
-          onClose={this.handleClose}
-          autoHideDuration={6000}
-          message={<span className={classes.snack}>{error}</span>}
-        />}
+        {error && (
+          <Snackbar 
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            open={openError}
+            onClose={this.handleClose}
+            autoHideDuration={6000}
+            message={<span className={classes.snack}>{error}</span>}
+          />
+        )}
       </Paper>
     </div>;
   }

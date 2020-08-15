@@ -53,8 +53,9 @@
   - added deleteUser to api, added DeleteUser component to profile page, defined DeleteUser component
   - added getAuthUser to api, added EditProfile component in pages
   - added updateUser to api, created handleChange & handleSubmit within edit-profile to process user events
-  - imported error & snackbar features from signup page, implemented handleSubmit & handleClose, updated User 
+  - imported error & snackbar features from signup page, implemented handleSubmit & handleClose, updated User
     gets pushed to profile page at finish
   - created a splash page for unauthenticated users
+  - imported userfeed & postfeed to user dashboard, defined UserFeed
+    component, added api call for user feed, implemented user feed snackbar
   - 
-    
