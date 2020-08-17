@@ -58,4 +58,6 @@
   - created a splash page for unauthenticated users
   - imported userfeed & postfeed to user dashboard, defined UserFeed
     component, added api call for user feed, implemented user feed snackbar
+  - creating post components, defined NewPost with stateless function component, PostFeed react component provided
+    FormData in componentDidMount & handleChange for state of user data
   - 
