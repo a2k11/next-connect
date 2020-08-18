@@ -3,12 +3,14 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 import NewPost from "./NewPost";
 import Post from "./Post";
+import { addPost } from "../../api/lib";
 
 class PostFeed extends React.Component {
   state = {
     posts: [],
     text: "",
-    image: ""
+    image: "",
+    isAddingPost: false
   };
 
   componentDidMount() {
@@ -27,10 +29,30 @@ class PostFeed extends React.Component {
     this.setState({ [event.target.name]: inputValue })
 
   }
+  
+  handleAddPost = () => {
+    const { auth } = this.props;
+
+    this.setState({ isAddingPost: true })
+    addPost(auth.user._id, this.postData).then(postData => {
+      const updatedPosts = [postData, ...this.state.posts]
+      this.setState({
+        posts: updatedPosts,
+        isAddingPost: false,
+        text: "",
+        image: ""
+      })
+      this.postData.delete('image')
+    }).catch(err => {
+      console.error(err);
+      this.setState({ isAddingPost: false })
+    })
+
+  }
 
   render() {
     const { classes, auth } = this.props;
-    const { text, image } = this.state;
+    const { text, image, isAddingPost } = this.state;
 
     return (
       <div className={classes.root}>
@@ -47,7 +69,9 @@ class PostFeed extends React.Component {
           auth={auth}
           text={text}
           image={image}
+          isAddingPost={isAddingPost}
           handleChange={this.handleChange}
+          handleAddPost={this.handleAddPost}
         />
         {/* post list */}
       </div>

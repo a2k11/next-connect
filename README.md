@@ -60,4 +60,6 @@
     component, added api call for user feed, implemented user feed snackbar
   - creating post components, defined NewPost with stateless function component, PostFeed react component provided
     FormData in componentDidMount & handleChange for state of user data
-  - 
+  - fn: addPost request created, posts now persist which include images & texts, passed actions on PostFeed 
+    through to New Post in order to make new posts
+  -  
