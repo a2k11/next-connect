@@ -62,4 +62,6 @@
     FormData in componentDidMount & handleChange for state of user data
   - fn: addPost request created, posts now persist which include images & texts, passed actions on PostFeed 
     through to New Post in order to make new posts
+  - grabbing posts through get api call, displaying posts on post feed by adding Post component, defined
+    Post component by passing post attributes, added delete button for each post, fixed new post issue
   -  
