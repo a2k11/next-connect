@@ -64,4 +64,6 @@
     through to New Post in order to make new posts
   - grabbing posts through get api call, displaying posts on post feed by adding Post component, defined
     Post component by passing post attributes, added delete button for each post, fixed new post issue
-  -  
+  -  create delete path for post, added more props to post, implemented deletePost in api, handleDelete 
+     deletes posts in PostFeed component
+  - 
