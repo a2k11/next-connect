@@ -68,4 +68,5 @@
     deletes posts in PostFeed component
   - updated like button to send requests to server, added props to post to send back data to handleToggleLike
     in post feed
+  - added componentDidMount & componentDidUpdate to check like from user, also display total likes in post component
   - 

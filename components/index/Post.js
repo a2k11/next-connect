@@ -16,7 +16,29 @@ import Link from "next/link";
 import { Icon } from "@material-ui/core";
 
 class Post extends React.Component {
-  state = {};
+  state = {
+    isLiked: false,
+    numLikes: 0,
+    comments: []
+  };
+
+  componentDidMount() {
+    this.setState({
+      isLiked: this.checkLiked(this.props.post.likes),
+      numLikes: this.props.post.likes.length
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.post.likes.length !== this.props.post.likes.length) {
+      this.setState({
+        isLiked: this.checkLiked(this.props.post.likes),
+        numLikes: this.props.post.likes.length  
+      })
+    }
+  }
+
+  checkLiked = likes => likes.includes(this.props.auth.user._id);
 
   render() {
     const { 
@@ -27,6 +49,7 @@ class Post extends React.Component {
       handleDeletePost,
       handleToggleLike
     } = this.props;
+    const { isLiked, numLikes, comments } = this.state;
     const isPostCreator = post.postedBy._id === auth.user._id;
 
     return (
@@ -70,12 +93,16 @@ class Post extends React.Component {
             onClick={() => handleToggleLike(post)}
             className={classes.button}
           >
-            <Badge badgeContent={0} color="secondary">
-              <FavoriteBorder className={classes.favoriteIcon} />
+            <Badge badgeContent={numLikes} color="secondary">
+              {isLiked ? (
+                <Favorite  className={classes.favoriteIcon} />
+              ) : (
+                <FavoriteBorder className={classes.favoriteIcon} />
+              )}
             </Badge>
           </IconButton>
           <IconButton className={classes.button}>
-            <Badge badgeContent={0} color="primary">
+            <Badge badgeContent={comments.length} color="primary">
               <Comment className={classes.commentIcon} />
             </Badge>
           </IconButton>
