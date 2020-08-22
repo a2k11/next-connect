@@ -69,4 +69,7 @@
   - updated like button to send requests to server, added props to post to send back data to handleToggleLike
     in post feed
   - added componentDidMount & componentDidUpdate to check like from user, also display total likes in post component
-  - 
+  - pure component implemented to prevent rerendering, uses shouldComponentUpdate with a shallow prop & state
+    comparison, skips prop updates for the whole component subtree
+  - scaffolding for comment component, created list of comments below post with user name & avatar, new comment 
+    form & delete option for user's comments, added comment to post component
