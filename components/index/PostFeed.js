@@ -64,7 +64,7 @@ class PostFeed extends React.Component {
   };
 
   handleDeletePost = (deletedPost) => {
-    this.setState=({ isDeletingPost: true })
+    this.setState({ isDeletingPost: true });
     deletePost(deletedPost._id).then(postData => {
       const postIndex = this.state.posts.findIndex(post => post._id === postData._id)
       const updatedPosts = [
@@ -74,10 +74,10 @@ class PostFeed extends React.Component {
       this.setState({
         posts: updatedPosts,
         isDeletingPost: false
-      })
+      });
     }).catch(err => {
       console.error(err);
-      this.setState({ isDeletingPost: false })
+      this.setState({ isDeletingPost: false });
     })
   };
 
