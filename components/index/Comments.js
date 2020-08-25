@@ -8,7 +8,22 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Link from "next/link";
 
 class Comments extends React.Component {
-  state = {};
+  state = {
+    text: ""
+  };
+
+  handleChange = event => {
+    this.setState({ text: event.target.value })
+  }
+
+  handleSubmit = event => {
+    const { text } = this.state;
+    const { postId, handleAddComment } = this.props;
+
+    event.preventDefault();
+    handleAddComment(postId, text);
+    this.setState({ text: "" });
+  }
 
   showComment = comment => {
     const { postId, auth, classes } = this.props;
@@ -17,9 +32,10 @@ class Comments extends React.Component {
     return (
       <div>
         <Link href={`/profile/${comment.postedBy._id}`}>
-          <a>{comments.postedBy.name}</a>
+          <a>{comment.postedBy.name}</a>
         </Link>
         <br />
+        {comment.text}
         <span className={classes.commentDate}>
           {comment.createdAt}
           { isCommentCreator && (
@@ -35,6 +51,7 @@ class Comments extends React.Component {
 
   render() {
     const { auth, comments, classes } = this.props;
+    const { text } = this.state;
 
     return (
       <div>
@@ -43,13 +60,15 @@ class Comments extends React.Component {
           avatar={<Avatar className={classes.smallAvatar}
                           src={auth.user.avatar} />}
           title={
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="add-comment">Add comments</InputLabel>
                 <Input
                   id="add-comment"
                   name="text"
                   placeholder="Reply to this post"
+                  value={text}
+                  onChange={this.handleChange}
                 />
               </FormControl>
             </form>

@@ -73,3 +73,9 @@
     comparison, skips prop updates for the whole component subtree
   - scaffolding for comment component, created list of comments below post with user name & avatar, new comment 
     form & delete option for user's comments, added comment to post component
+  - in PostFeed fn: handleAddComment collects postId & text data and sends it to api, handleAddComment is added to 
+    the props of post component and then added to the props of the comment component, the comment component contains
+    logic to update its state with the text the user enters for a comment and with handleSubmit it will call 
+    handleAddComment and the way back up the chain, set comments in Post component state through the 
+    componentDidMount & componentDidUpdate hooks
+  - 
