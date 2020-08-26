@@ -78,4 +78,7 @@
     logic to update its state with the text the user enters for a comment and with handleSubmit it will call 
     handleAddComment and the way back up the chain, set comments in Post component state through the 
     componentDidMount & componentDidUpdate hooks
+  - deleting individual comments, added onClick event in comment component for delete icon, added api route
+    for deletion and handleDeleteComment fn. in PostFeed component, passed prop from PostFeed to Post to
+    Comment component
   - 
