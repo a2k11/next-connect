@@ -81,4 +81,6 @@
   - deleting individual comments, added onClick event in comment component for delete icon, added api route
     for deletion and handleDeleteComment fn. in PostFeed component, passed prop from PostFeed to Post to
     Comment component
+  - displaying posts on profile page, adding api route for getting posts by userId, grabbing posts through 
+    state, adding ProfileTabs component to profile page, defining tabs with data from user
   - 

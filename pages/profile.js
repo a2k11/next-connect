@@ -13,15 +13,17 @@ import Edit from "@material-ui/icons/Edit";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Link from 'next/link';
 
+import ProfileTabs from '../components/profile/ProfileTabs'
 import DeleteUser from '../components/profile/DeleteUser';
 import FollowUser from '../components/profile/FollowUser';
 import { authInitialProps } from '../lib/auth';
-import { getUser } from "../lib/api";
+import { getUser, getPostsByUser } from "../lib/api";
 import { Icon } from "@material-ui/core";
 
 class Profile extends React.Component {
   state = {
     user: null,
+    posts: [],
     isAuth: false,
     isFollowing: false,
     isLoading: true,
@@ -30,12 +32,13 @@ class Profile extends React.Component {
   componentDidMount() {
     const { userId, auth } = this.props;
     
-    const isAuth = auth.user._id === userId;
-    
-    getUser(userId).then(user => {
+    getUser(userId).then(async user => {
+      const isAuth = auth.user._id === userId;
       const isFollowing = this.checkFollow(auth, user);
+      const posts = await getPostsByUser(userId)
       this.setState({
         user,
+        posts,
         isAuth,
         isFollowing,
         isLoading: false,
@@ -57,8 +60,8 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { isLoading, user, isAuth, isFollowing } = this.state;
+    const { classes, auth } = this.props;
+    const { isLoading, posts, user, isAuth, isFollowing } = this.state;
 
     return (
       <Paper className={classes.root} elevation={4}>
@@ -108,6 +111,13 @@ class Profile extends React.Component {
             <ListItem>
               <ListItemText primary={user.about} secondary={`Joined: ${user.createdAt}`}/>
             </ListItem>
+
+            {/* display user's posts, followers & following  */}
+            <ProfileTabs
+              auth={auth}
+              user={user}
+              posts={posts}
+            />
           </List>
         )}
       </Paper>
