@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Router } from "next/router";
+import Router from "next/router";
 
 import PostFeed from "../components/index/PostFeed";
 import UserFeed from "../components/index/UserFeed";
