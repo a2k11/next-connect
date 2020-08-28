@@ -83,4 +83,6 @@
     Comment component
   - displaying posts on profile page, adding api route for getting posts by userId, grabbing posts through 
     state, adding ProfileTabs component to profile page, defining tabs with data from user
-  - 
+  - adding function to profile page, updated Profile Tab component with Post component, grabbed handle actions
+    for post and placed them in ProfileTabs component
+  -  
