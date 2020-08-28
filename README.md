@@ -88,4 +88,5 @@
   - fixed posts prop on ProfileTabs component, displaying followers / following on profile page with tabs, added 
     FollowTab component to ProfileTab, forgot to add isDeletingPost prop to ProfileTab, defined FollowTab with 
     users & their avatars
+  - adding library distanceInWordsToNow to Post / Comment / profile to format time, defined format fns
   - 

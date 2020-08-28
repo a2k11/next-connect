@@ -12,6 +12,7 @@ import Divider from "@material-ui/core/Divider";
 import Edit from "@material-ui/icons/Edit";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Link from 'next/link';
+import format from 'date-fns/format';
 
 import ProfileTabs from '../components/profile/ProfileTabs'
 import DeleteUser from '../components/profile/DeleteUser';
@@ -134,6 +135,9 @@ class Profile extends React.Component {
     }).catch(err => console.error(err))
   }
 
+  // Friday, August 28th, 2020
+  formatDate = date => format(date, "dddd, MMMM Do, YYYY")
+
   render() {
     const { classes, auth } = this.props;
     const { 
@@ -191,7 +195,7 @@ class Profile extends React.Component {
             </ListItem>
             <Divider />
             <ListItem>
-              <ListItemText primary={user.about} secondary={`Joined: ${user.createdAt}`}/>
+              <ListItemText primary={user.about} secondary={`Joined: ${this.formatDate(user.createdAt)}`}/>
             </ListItem>
 
             {/* display user's posts, followers & following  */}
