@@ -88,5 +88,7 @@
   - fixed posts prop on ProfileTabs component, displaying followers / following on profile page with tabs, added 
     FollowTab component to ProfileTab, forgot to add isDeletingPost prop to ProfileTab, defined FollowTab with 
     users & their avatars
-  - adding library distanceInWordsToNow to Post / Comment / profile to format time, defined format fns
-  - 
+  - adding library date-fns/distance_in_words_to_now to Post / Comment & date-fns/format to profile to format time,
+    defined format fns in each component / page
+  - fixing final theme colors, adding heroku script to package.json
+  - deployed to https://a2k11-next-connect.herokuapp.com/

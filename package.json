@@ -11,7 +11,8 @@
     "alias": "now alias",
     "remove:deploy": "now rm next-connect",
     "lint": "eslint \"server/**/*.{js}\" --quiet",
-    "lint:fix": "eslint \"server/**/*.{js}\" --quiet --fix"
+    "lint:fix": "eslint \"server/**/*.{js}\" --quiet --fix",
+    "heroku-postbuild": "next build"
   },
   "keywords": [],
   "author": "",
