@@ -4,6 +4,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import Post from '../../components/index/Post';
+import FollowTab from '../../components/profile/FollowTab';
 
 class ProfileTabs extends React.Component {
   state = {
@@ -23,9 +24,10 @@ class ProfileTabs extends React.Component {
       handleDeletePost,
       handleToggleLike,
       handleAddComment,
-      handleDeleteComment
+      handleDeleteComment,
+      isDeletingPost
     } = this.props;
-    
+
     return (
       <div>
         <AppBar position="static" color="default">
@@ -47,7 +49,7 @@ class ProfileTabs extends React.Component {
               <Post
                 key={post.id}
                 auth={auth}
-               post={post}
+                post={post}
                 isDeletingPost={isDeletingPost}
                 handleDeletePost={handleDeletePost}
                 handleToggleLike={handleToggleLike}
@@ -55,6 +57,16 @@ class ProfileTabs extends React.Component {
                 handleDeleteComment={handleDeleteComment}
             />
             ))}
+          </TabContainer>
+        )}
+        {tab === 1 && (
+          <TabContainer>
+            <FollowTab users={user.following} />
+          </TabContainer>
+        )}
+        {tab === 2 && (
+          <TabContainer>
+            <FollowTab users={user.followers} />
           </TabContainer>
         )}
       </div>

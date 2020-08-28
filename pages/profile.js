@@ -136,7 +136,14 @@ class Profile extends React.Component {
 
   render() {
     const { classes, auth } = this.props;
-    const { isLoading, posts, user, isAuth, isFollowing, isDeletingPost } = this.state;
+    const { 
+      isLoading,
+      posts,
+      user,
+      isAuth,
+      isFollowing,
+      isDeletingPost
+    } = this.state;
 
     return (
       <Paper className={classes.root} elevation={4}>
@@ -190,7 +197,8 @@ class Profile extends React.Component {
             {/* display user's posts, followers & following  */}
             <ProfileTabs
               auth={auth}
-              post={posts}
+              posts={posts}
+              user={user}
               isDeletingPost={isDeletingPost}
               handleDeletePost={this.handleDeletePost}
               handleToggleLike={this.handleToggleLike}
